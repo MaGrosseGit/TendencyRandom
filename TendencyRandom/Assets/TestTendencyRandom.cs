@@ -39,12 +39,14 @@ public class TestTendencyRandom : MonoBehaviour
     List<System.Object> Results = new List<System.Object>();
     void Update()
     {
+        //Test the tendencyRandom function and store results in lists
         while (i < 100)
         {
             Results.Add(transform.TendencyRandom(percentagesArray));
             i++;
         }
 
+        //Organize the lists using LINQ
         if (Input.GetKeyUp(KeyCode.AltGr))
         {
             Dictionary<System.Object, int> counts = Results.GroupBy(x => x)
@@ -58,6 +60,8 @@ public class TestTendencyRandom : MonoBehaviour
                 //" + (int)TendencyTest[counts.Keys.ElementAt(entry.Key)] + "
             }
         }
+
+        //Reset the dictionnary
         if (Input.GetKeyUp(KeyCode.Space))
         {
             i = 0;
